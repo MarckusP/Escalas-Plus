@@ -34,7 +34,7 @@ export default function Perfil() {
     try {
       setLoading(true);
       const volunteers = await getVolunteers(igrejaSelecionada.id);
-      // TODO: buscar voluntário específico pelo ID do usuário logado
+      // TODO: buscar voluntÃ¡rio especÃ­fico pelo ID do usuÃ¡rio logado
       const myProfile = volunteers.find((v: Volunteer) => v.id === 1) || volunteers[0];
       setVolunteer(myProfile);
     } catch (error) {
@@ -71,7 +71,7 @@ export default function Perfil() {
     return (
       <div className="min-h-screen p-8">
         <GlassCard>
-          <p className="text-white/60 text-center py-8">Perfil não encontrado</p>
+          <p className="text-white/60 text-center py-8">Perfil nÃ£o encontrado</p>
         </GlassCard>
       </div>
     );
@@ -123,7 +123,7 @@ export default function Perfil() {
           </GlassCard>
 
           <GlassCard>
-            <h3 className="text-2xl font-semibold text-white mb-4">Funções que Posso Exercer</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4">FunÃ§Ãµes que Posso Exercer</h3>
             {volunteer.funcoes && volunteer.funcoes.length > 0 ? (
               <div className="flex flex-wrap gap-3">
                 {volunteer.funcoes.map((funcao, index) => (
@@ -138,7 +138,7 @@ export default function Perfil() {
                 ))}
               </div>
             ) : (
-              <p className="text-white/60">Nenhuma função atribuída</p>
+              <p className="text-white/60">Nenhuma funÃ§Ã£o atribuÃ­da</p>
             )}
           </GlassCard>
         </div>

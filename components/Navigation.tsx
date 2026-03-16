@@ -17,7 +17,7 @@ const navItems = [
 export default function Navigation() {
   const pathname = usePathname();
 
-  // N„o mostrar navegaÁ„o na p·gina inicial
+  // N√£o mostrar navega√ß√£o na p√°gina inicial
   if (pathname === '/') {
     return null;
   }

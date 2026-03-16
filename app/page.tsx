@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
             Escalas Moria
           </h1>
-          <p className="text-xl text-white/80">Gest„o de Volunt·rios</p>
+          <p className="text-xl text-white/80">Gest√£o de Volunt√°rios</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -25,7 +25,7 @@ export default function Home() {
             href="/dashboard"
             icon={Calendar}
             title="Dashboard"
-            description="Visualize suas prÛximas escalas e tarefas"
+            description="Visualize suas pr√≥ximas escalas e tarefas"
           />
           <NavCard
             href="/escalas"
@@ -43,13 +43,13 @@ export default function Home() {
             href="/disponibilidade"
             icon={CheckCircle}
             title="Disponibilidade"
-            description="Marque seus dias disponÌveis"
+            description="Marque seus dias dispon√≠veis"
           />
           <NavCard
             href="/tarefas"
             icon={ClipboardList}
             title="Tarefas"
-            description="Visualize suas tarefas atribuÌdas"
+            description="Visualize suas tarefas atribu√≠das"
           />
           <NavCard
             href="/perfil"

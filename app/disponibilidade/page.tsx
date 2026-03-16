@@ -11,11 +11,11 @@ import toast from 'react-hot-toast';
 const daysOfWeek = [
   'Domingo',
   'Segunda-feira',
-  'TerÁa-feira',
+  'Ter√ßa-feira',
   'Quarta-feira',
   'Quinta-feira',
   'Sexta-feira',
-  'S·bado',
+  'S√°bado',
 ];
 
 export default function Disponibilidade() {
@@ -33,7 +33,7 @@ export default function Disponibilidade() {
   const loadAvailability = async () => {
     try {
       setLoading(true);
-      const data = await getAvailability(1); // TODO: usar ID do usu·rio logado
+      const data = await getAvailability(1); // TODO: usar ID do usu√°rio logado
       const availabilityMap: Record<number, boolean> = {};
       data.forEach((item: any) => {
         availabilityMap[item.day_of_week] = item.available;
@@ -61,7 +61,7 @@ export default function Disponibilidade() {
         day_of_week: Number(day),
         available,
       }));
-      await updateAvailability(1, { availability: availabilityData }); // TODO: usar ID do usu·rio logado
+      await updateAvailability(1, { availability: availabilityData }); // TODO: usar ID do usu√°rio logado
       toast.success('Disponibilidade salva!');
     } catch (error) {
       toast.error('Erro ao salvar disponibilidade');
@@ -104,7 +104,7 @@ export default function Disponibilidade() {
           <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
             Disponibilidade
           </h1>
-          <p className="text-white/70">Marque os dias da semana em que vocÍ est· disponÌvel</p>
+          <p className="text-white/70">Marque os dias da semana em que voc√™ est√° dispon√≠vel</p>
         </motion.div>
 
         <GlassCard>

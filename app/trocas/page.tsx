@@ -58,7 +58,7 @@ export default function Trocas() {
     try {
       setLoading(true);
       const [requests, schedules, vols] = await Promise.all([
-        getSwapRequests(1), // TODO: usar ID do usuário logado
+        getSwapRequests(1), // TODO: usar ID do usuÃ¡rio logado
         getSchedule(1, igrejaSelecionada.id),
         getVolunteers(igrejaSelecionada.id),
       ]);
@@ -75,30 +75,30 @@ export default function Trocas() {
 
   const handleCreateSwap = async () => {
     if (!selectedSchedule || !selectedVolunteer) {
-      toast.error('Selecione uma escala e um voluntário');
+      toast.error('Selecione uma escala e um voluntÃ¡rio');
       return;
     }
 
     try {
       await createSwapRequest({
         scheduleId: selectedSchedule.id,
-        fromVolunteerId: 1, // TODO: usar ID do usuário logado
+        fromVolunteerId: 1, // TODO: usar ID do usuÃ¡rio logado
         toVolunteerId: selectedVolunteer,
         message,
       });
-      toast.success('Solicitação de troca criada!');
+      toast.success('SolicitaÃ§Ã£o de troca criada!');
       setShowCreateModal(false);
       setSelectedSchedule(null);
       setSelectedVolunteer(null);
       setMessage('');
       loadData();
     } catch (error) {
-      toast.error('Erro ao criar solicitação');
+      toast.error('Erro ao criar solicitaÃ§Ã£o');
       console.error(error);
     }
   };
 
-  // Carregar voluntários quando uma escala for selecionada
+  // Carregar voluntÃ¡rios quando uma escala for selecionada
   useEffect(() => {
     if (selectedSchedule && selectedSchedule.event_id) {
       loadVolunteersForEvent(selectedSchedule.event_id, selectedSchedule.permite_escalas_entre_igrejas);
@@ -107,13 +107,13 @@ export default function Trocas() {
 
   const loadVolunteersForEvent = async (eventId: number, permiteEntreIgrejas?: boolean) => {
     try {
-      const vols = await getVolunteers(
+      const volunteers = await getVolunteers(
         permiteEntreIgrejas ? undefined : igrejaSelecionada?.id,
         eventId
       );
-      setVolunteers(vols);
+      setVolunteers(volunteers);
     } catch (error) {
-      toast.error('Erro ao carregar voluntários');
+      toast.error('Erro ao carregar voluntÃ¡rios');
       console.error(error);
     }
   };
@@ -163,7 +163,7 @@ export default function Trocas() {
   }
 
   const pendingRequests = swapRequests.filter(r => r.status === 'pending');
-  const myRequests = swapRequests.filter(r => r.from_volunteer_name.includes('Você') || r.to_volunteer_name.includes('Você'));
+  const myRequests = swapRequests.filter(r => r.from_volunteer_name.includes('VocÃª') || r.to_volunteer_name.includes('VocÃª'));
 
   return (
     <div className="min-h-screen p-8 pb-24">
@@ -177,7 +177,7 @@ export default function Trocas() {
             <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
               Trocas
             </h1>
-            <p className="text-white/70">Gerencie solicitações de troca</p>
+            <p className="text-white/70">Gerencie solicitaÃ§Ãµes de troca</p>
           </div>
           <motion.button
             whileHover={{ scale: 1.05 }}
@@ -193,7 +193,7 @@ export default function Trocas() {
         <div className="space-y-6">
           {pendingRequests.length > 0 && (
             <div>
-              <h2 className="text-2xl font-semibold text-white mb-4">Solicitações Pendentes</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">SolicitaÃ§Ãµes Pendentes</h2>
               <div className="space-y-4">
                 {pendingRequests.map((request) => (
                   <motion.div
@@ -211,7 +211,7 @@ export default function Trocas() {
                             {new Date(request.event_date).toLocaleDateString('pt-BR')}
                           </p>
                           <p className="text-white/60 text-sm">
-                            De: {request.from_volunteer_name} ? Para: {request.to_volunteer_name}
+                            De: {request.from_volunteer_name} â†’ Para: {request.to_volunteer_name}
                           </p>
                           {request.message && (
                             <p className="text-white/70 mt-2 text-sm">{request.message}</p>
@@ -244,10 +244,10 @@ export default function Trocas() {
           )}
 
           <div>
-            <h2 className="text-2xl font-semibold text-white mb-4">Minhas Solicitações</h2>
+            <h2 className="text-2xl font-semibold text-white mb-4">Minhas SolicitaÃ§Ãµes</h2>
             {myRequests.length === 0 ? (
               <GlassCard>
-                <p className="text-white/60 text-center py-8">Nenhuma solicitação encontrada</p>
+                <p className="text-white/60 text-center py-8">Nenhuma solicitaÃ§Ã£o encontrada</p>
               </GlassCard>
             ) : (
               <div className="space-y-4">
@@ -313,7 +313,7 @@ export default function Trocas() {
                     onChange={(e) => setSelectedVolunteer(Number(e.target.value))}
                     className="w-full glass p-3 rounded-xl text-white bg-white/10 border border-white/20"
                   >
-                    <option value="">Selecione um voluntário</option>
+                    <option value="">Selecione um voluntÃ¡rio</option>
                     {volunteers.map((vol) => (
                       <option key={vol.id} value={vol.id}>
                         {vol.nome}

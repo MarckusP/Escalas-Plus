@@ -32,7 +32,7 @@ export default function Tarefas() {
     
     try {
       setLoading(true);
-      const data = await getTasks(1, igrejaSelecionada.id); // TODO: usar ID do usu·rio logado
+      const data = await getTasks(1, igrejaSelecionada.id); // TODO: usar ID do usu√°rio logado
       setTasks(data);
     } catch (error) {
       toast.error('Erro ao carregar tarefas');
@@ -89,7 +89,7 @@ export default function Tarefas() {
           <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
             Tarefas
           </h1>
-          <p className="text-white/70">Visualize e gerencie suas tarefas atribuÌdas</p>
+          <p className="text-white/70">Visualize e gerencie suas tarefas atribu√≠das</p>
         </motion.div>
 
         <div className="space-y-6">
@@ -135,7 +135,7 @@ export default function Tarefas() {
 
           {completedTasks.length > 0 && (
             <div>
-              <h2 className="text-2xl font-semibold text-white mb-4">Tarefas ConcluÌdas</h2>
+              <h2 className="text-2xl font-semibold text-white mb-4">Tarefas Conclu√≠das</h2>
               <div className="space-y-4">
                 {completedTasks.map((task) => (
                   <motion.div
@@ -172,3 +172,4 @@ export default function Tarefas() {
     </div>
   );
 }
+

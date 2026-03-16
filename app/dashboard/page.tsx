@@ -44,7 +44,7 @@ export default function Dashboard() {
     try {
       setLoading(true);
       const [schedulesData, tasksData] = await Promise.all([
-        getSchedule(1, igrejaSelecionada.id), // TODO: usar ID do usuário logado
+        getSchedule(1, igrejaSelecionada.id), // TODO: usar ID do usuÃ¡rio logado
         getTasks(1, igrejaSelecionada.id),
       ]);
       setSchedules(schedulesData);
@@ -103,10 +103,10 @@ export default function Dashboard() {
           <GlassCard>
             <div className="flex items-center gap-3 mb-4">
               <Calendar className="w-6 h-6 text-white/90" />
-              <h2 className="text-2xl font-semibold text-white">Próximas Escalas</h2>
+              <h2 className="text-2xl font-semibold text-white">PrÃ³ximas Escalas</h2>
             </div>
             {upcomingSchedules.length === 0 ? (
-              <p className="text-white/60">Nenhuma escala próxima</p>
+              <p className="text-white/60">Nenhuma escala prÃ³xima</p>
             ) : (
               <div className="space-y-3">
                 {upcomingSchedules.map((schedule) => (
@@ -120,9 +120,9 @@ export default function Dashboard() {
                       <div>
                         <h3 className="font-semibold text-white">{schedule.event_name}</h3>
                         <p className="text-sm text-white/70">
-                          {new Date(schedule.event_date).toLocaleDateString('pt-BR')} às {schedule.event_time}
+                          {new Date(schedule.event_date).toLocaleDateString('pt-BR')} Ã s {schedule.event_time}
                         </p>
-                        <p className="text-sm text-white/60 mt-1">Função: {schedule.role_name}</p>
+                        <p className="text-sm text-white/60 mt-1">FunÃ§Ã£o: {schedule.role_name}</p>
                       </div>
                       {schedule.confirmed ? (
                         <CheckCircle className="w-5 h-5 text-green-400" />
@@ -135,7 +135,7 @@ export default function Dashboard() {
               </div>
             )}
             <Link href="/escalas" className="block mt-4 text-blue-300 hover:text-blue-200 text-sm">
-              Ver todas as escalas ?
+              Ver todas as escalas â†’
             </Link>
           </GlassCard>
 
@@ -165,7 +165,7 @@ export default function Dashboard() {
               </div>
             )}
             <Link href="/tarefas" className="block mt-4 text-blue-300 hover:text-blue-200 text-sm">
-              Ver todas as tarefas ?
+              Ver todas as tarefas â†’
             </Link>
           </GlassCard>
         </div>

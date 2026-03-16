@@ -36,7 +36,7 @@ export default function Escalas() {
     
     try {
       setLoading(true);
-      const data = await getSchedule(1, igrejaSelecionada.id); // TODO: usar ID do usu·rio logado
+      const data = await getSchedule(1, igrejaSelecionada.id); // TODO: usar ID do usu√°rio logado
       setSchedules(data);
     } catch (error) {
       toast.error('Erro ao carregar escalas');
@@ -49,10 +49,10 @@ export default function Escalas() {
   const handleConfirm = async (scheduleId: number) => {
     try {
       await confirmPresence(scheduleId);
-      toast.success('PresenÁa confirmada!');
+      toast.success('Presen√ßa confirmada!');
       loadSchedules();
     } catch (error) {
-      toast.error('Erro ao confirmar presenÁa');
+      toast.error('Erro ao confirmar presen√ßa');
       console.error(error);
     }
   };
@@ -132,7 +132,7 @@ export default function Escalas() {
                           })}
                         </p>
                         <p className="text-white/60 text-sm mt-1">
-                          Hor·rio: {schedule.event_time} | FunÁ„o: {schedule.role_name}
+                          Hor√°rio: {schedule.event_time} | Fun√ß√£o: {schedule.role_name}
                         </p>
                         {schedule.escala_entre_igrejas && schedule.igreja_nome && (
                           <p className="text-blue-300 text-xs mt-1">
@@ -155,7 +155,7 @@ export default function Escalas() {
                           className="glass-strong px-6 py-2 rounded-xl text-white hover:bg-white/30 transition-colors flex items-center gap-2"
                         >
                           <CheckCircle className="w-4 h-4" />
-                          Confirmar PresenÁa
+                          Confirmar Presen√ßa
                         </motion.button>
                       )}
                     </div>

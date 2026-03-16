@@ -28,7 +28,7 @@ export default function IgrejaSelector() {
       const data = await getIgrejas();
       setIgrejas(data);
       
-      // Se não há igreja selecionada e há igrejas disponíveis, selecionar a primeira
+      // Se nÃ£o hÃ¡ igreja selecionada e hÃ¡ igrejas disponÃ­veis, selecionar a primeira
       if (!igrejaSelecionada && data.length > 0) {
         setIgrejaSelecionada(data[0]);
       }

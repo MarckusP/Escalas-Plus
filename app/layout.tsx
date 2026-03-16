@@ -8,8 +8,8 @@ import Providers from "@/components/Providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Escalas Moria - Gest„o de Volunt·rios",
-  description: "Sistema de gest„o de volunt·rios de igreja",
+  title: "Escalas Moria - Gest√£o de Volunt√°rios",
+  description: "Sistema de gest√£o de volunt√°rios de igreja",
 };
 
 export default function RootLayout({
