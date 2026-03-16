@@ -7,6 +7,9 @@ import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Evita prerender estático que quebra com framer-motion no Client Manifest (Next 14 + Vercel)
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Escalas Moria - Gestão de Voluntários",
   description: "Sistema de gestão de voluntários de igreja",
